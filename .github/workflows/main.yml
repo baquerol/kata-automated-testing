@@ -33,12 +33,12 @@ jobs:
         with:
           name: reports
           path: |
-            extent-report.html # Subir el reporte HTML de ExtentReports
+            Reporte/Tests_Report_Fakestoreapi_Products.html # Subir el reporte HTML de ExtentReports
 
       # Publish ExtentReports URL to the workflow's output
       - name: Publish ExtentReports URL
         run: |
-          if [ -f "target/extent-report.html" ]; then
+          if [ -f "Reporte/Tests_Report_Fakestoreapi_Products.html" ]; then
             echo "ExtentReports are available at: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts"
           else
             echo "No ExtentReports found"
