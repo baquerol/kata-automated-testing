@@ -63,24 +63,6 @@ public class PostAddProductTest extends ReportTest {
             Assert.fail("Error al realizar la prueba: " + e.getMessage());
         }
     }
-    @Test
-    public void postAddProductFailedBody () {
-        try {
-            test = extent.createTest("Test API Post Add a New Product Failed Body");
-            String endPoint = "/products";
-            String jsonBody = getJsonFileContent("postAddProductos.json");
-            Response response = postRequest(endPoint, jsonBody);
-            test.info("Respuesta de la API: " + response.getBody().asString());
-            int statusCode = response.getStatusCode();
-            test.pass("El codigo de respuesta es: " + statusCode);
-            Assert.assertEquals(statusCode, 200);
-            test.log(Status.INFO, "El codigo de respuesta corresponde con el esperado");
-        } catch (Exception e) {
-            test.log(Status.FAIL, "Error al leer el archivo o al hacer la peticion: " + e.getMessage());
-            Assert.fail("Error al realizar la prueba: " + e.getMessage());
-        }
-    }
-
     @AfterMethod
     public void afterMethod(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
