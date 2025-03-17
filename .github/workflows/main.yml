@@ -29,17 +29,9 @@ jobs:
 
       # Upload the Serenity and ExtentReports as artifacts
       - name: Upload Extent Reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reports
-          path: |
-            Reporte/Tests_Report_Fakestoreapi_Products.html # Subir el reporte HTML de ExtentReports
+          path: Reporte/Tests_Report_Fakestoreapi_Products.html # Subir el reporte HTML de ExtentReports
 
-      # Publish ExtentReports URL to the workflow's output
-      - name: Publish ExtentReports URL
-        run: |
-          if [ -f "Reporte/Tests_Report_Fakestoreapi_Products.html" ]; then
-            echo "ExtentReports are available at: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts"
-          else
-            echo "No ExtentReports found"
-          fi
