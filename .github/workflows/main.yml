@@ -1,0 +1,47 @@
+name: Maven Serenity TestNG Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      # Setup JDK
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      # Setup Maven
+      - name: Set up Maven
+        uses: actions/setup-maven@v2
+        with:
+          maven-version: '3.9.8'
+
+      # Run the tests with Maven (including ExtentReports)-DsuiteXmlFiles=testng.xml
+      - name: Run tests with Maven
+        run: mvn clean verify 
+
+      # Upload the Serenity and ExtentReports as artifacts
+      - name: Upload Extent Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: reports
+          path: |
+            target/extent-report.html # Subir el reporte HTML de ExtentReports
+
+      # Publish ExtentReports URL to the workflow's output
+      - name: Publish ExtentReports URL
+        run: |
+          if [ -f "target/extent-report.html" ]; then
+            echo "ExtentReports are available at: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts"
+          else
+            echo "No ExtentReports found"
+          fi
