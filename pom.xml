@@ -21,7 +21,6 @@
             <roles>
                 <role>Tester</role>
             </roles>
-
         </developer>
     </developers>
     <dependencies>
@@ -93,36 +92,6 @@
     </dependencies>
     <build>
         <plugins>
-            <!-- Plugin para ejecutar las pruebas de TestNG -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-                <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testNG.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
-            </plugin>
-
-            <!-- Plugin de Serenity para generar los reportes -->
-            <plugin>
-                <groupId>net.serenity-bdd.maven.plugins</groupId>
-                <artifactId>serenity-maven-plugin</artifactId>
-                <version>3.7.1</version> <!-- Asegúrate de usar la versión adecuada -->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>aggregate</goal> <!-- Este goal es el encargado de generar los reportes -->
-                        </goals>
-                        <configuration>
-                            <!-- Ruta de salida donde se generarán los reportes de Serenity -->
-                            <outputDirectory>${project.build.directory}/serenity</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- Plugin de compilación -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
