@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite de pruebas con Serenity" thread-count="3" parallel="tests">
+
+    <test name="Test GetAllProducts">
+        <classes>
+            <class name="tests.GetAllProductsTest"> </class>
+        </classes>
+    </test>
+    <test name="Test GetSingleProduct">
+        <classes>
+            <class name="tests.GetSingleProductTest"> </class>
+        </classes>
+    </test>
+    <test name="Test PostAddProduct">
+        <classes>
+            <class name="tests.PostAddProductTest"> </class>
+        </classes>
+    </test>
+    <test name="Test PutUpdateProduct">
+        <classes>
+            <class name="tests.PutUpdateProductTest"> </class>
+        </classes>
+    </test>
+    <test name="Test DeleteProduct">
+        <classes>
+            <class name="tests.DeleteProductTest"> </class>
+        </classes>
+    </test>
+
+</suite>
