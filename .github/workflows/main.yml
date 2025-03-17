@@ -28,9 +28,9 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      # Run the tests with Maven (including ExtentReports)-DsuiteXmlFiles=testng.xml
+      # Run the tests with Maven (including ExtentReports)
       - name: Run tests with Maven
-        run: mvn clean verify 
+        run: mvn clean verify -DsuiteXmlFiles=testng.xml
 
       # Upload the Serenity and ExtentReports as artifacts
       - name: Upload Extent Reports
