@@ -31,11 +31,11 @@ jobs:
 
       # Upload the Serenity and ExtentReports as artifacts
       - name: Upload Extent Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: reports
           path: |
-            target/extent-report.html # Subir el reporte HTML de ExtentReports
+            extent-report.html # Subir el reporte HTML de ExtentReports
 
       # Publish ExtentReports URL to the workflow's output
       - name: Publish ExtentReports URL
